@@ -19,7 +19,7 @@ get_jokes(2)
 import random
 
 
-def get_jokes(quantity = 1):
+def get_jokes(quantity=1):
     """Function that returns jokes from random words"""
 
     nouns = ["автомобиль", "лес", "огонь", "город", "дом"]
@@ -31,7 +31,7 @@ def get_jokes(quantity = 1):
 
     jokes_list = []
 
-    while (quantity):
+    while quantity:
         jokes_list.append(
             random.choice(nouns) + " " + random.choice(adverbs) + " " + random.choice(adjectives))
         quantity -= 1

@@ -25,7 +25,7 @@ def thesaurus(*args):
         if not name_dict.get(first_char):
             name_dict.update({first_char: [value]})
         else:
-            print(name_dict[first_char].append(value))
+            name_dict[first_char].append(value)
     return name_dict
 
 

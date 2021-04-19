@@ -31,7 +31,7 @@ def split_for_names(*args):
         if not name_dict.get(first_char):
             name_dict.update({first_char: [value]})
         else:
-            print(name_dict[first_char].append(value))
+            name_dict[first_char].append(value)
 
     return name_dict
 
@@ -48,7 +48,7 @@ def thesaurus_adv(*args):
         if not surname_dict.get(first_char):
             surname_dict.update({first_char: [value]})
         else:
-            print(surname_dict[first_char].append(value))
+            surname_dict[first_char].append(value)
 
     for key, list_of_value in surname_dict.items():
         temp_dict = split_for_names(*list_of_value)
