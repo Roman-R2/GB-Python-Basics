@@ -14,20 +14,20 @@ from datetime import datetime
 
 
 def get_currency_dict(valute):
-    currency_dict = {}
+    local_currency_dict = {}
     for item in valute:
         currency_name = item.find("charcode").text
-        currency_dict.update({currency_name: {
+        local_currency_dict.update({currency_name: {
             "NumCode": item.find("numcode").text,
             'CharCode': item.find("charcode").text,
             "Nominal": item.find("nominal").text,
             "Name": item.find("name").text,
             "Value": item.find("value").text
         }})
-    return currency_dict
+    return local_currency_dict
 
 
-def currency_rates(currency="USD"):
+def currency_rates(local_currency="USD"):
     response = requests.get('http://www.cbr.ru/scripts/XML_daily.asp')
     if response.status_code != 200:
         return 0
@@ -38,13 +38,13 @@ def currency_rates(currency="USD"):
     currency_date = soup.find("valcurs")["date"]
     rate_date = datetime.strptime(currency_date, '%d.%m.%Y').date()
 
-    currency_dict = get_currency_dict(valute)
+    local_currency_dict = get_currency_dict(valute)
 
-    if currency_dict.get(currency) is None:
+    if local_currency_dict.get(local_currency) is None:
         return None
     else:
         return {
-            "rate": currency_dict.get(currency)["Value"],
+            "rate": local_currency_dict.get(local_currency)["Value"],
             "rate_date": rate_date
         }
 
