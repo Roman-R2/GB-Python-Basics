@@ -1,7 +1,8 @@
 """
 Написать функцию currency_rates(), принимающую в качестве аргумента код валюты (например, USD, EUR, GBP, ...) и возвращающую курс этой валюты по отношению к рублю. Использовать библиотеку requests.
 
-В качестве API можно использовать http://www.cbr.ru/scripts/XML_daily.asp. Рекомендация: выполнить предварительно запрос к API в обычном браузере, посмотреть содержимое ответа.
+В качестве API можно использовать http://www.cbr.ru/scripts/XML_daily.asp.
+Рекомендация: выполнить предварительно запрос к API в обычном браузере, посмотреть содержимое ответа.
 Можно ли, используя только методы класса str, решить поставленную задачу? Функция должна возвращать результат числового типа, например float.
 
 Подумайте: есть ли смысл для работы с денежными величинами использовать вместо float тип Decimal?
@@ -38,10 +39,7 @@ def currency_rates(currency="USD"):
 
     currency_dict = get_currency_dict(valute)
 
-    if currency_dict.get(currency) is None:
-        return None
-    else:
-        return currency_dict.get(currency)["Value"]
+    return currency_dict.get(currency)["Value"]
 
 
 rub_to_usd = currency_rates()
