@@ -23,3 +23,36 @@ klasses = [
 Подумать, в каких ситуациях генератор даст эффект.
 
 """
+
+tutors = [
+    'Иван',
+    'Анастасия',
+    'Петр',
+    'Сергей',
+    'Дмитрий',
+    'Борис',
+    'Елена'
+]
+
+klasses = ['9А', '7В', '9Б', '9В', '8Б', '10А']
+
+
+def tuple_generator(list_name, list_classes):
+    count = 0
+    len_klasses = len(klasses)
+    for name in list_name:
+        count += 1
+        final_tuple = (name, (list_classes[count] if count < len_klasses else None))
+        yield final_tuple
+
+
+tuples = tuple_generator(tutors, klasses)
+print(type(tuples))
+print(next(tuples))
+print(next(tuples))
+print(next(tuples))
+print(next(tuples))
+print(next(tuples))
+print(next(tuples))
+print(next(tuples))
+print(next(tuples))
