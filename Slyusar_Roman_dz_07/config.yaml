@@ -1,0 +1,9 @@
+my_project:
+  empty: yes
+
+settings:
+  empty: no
+  files:
+    - __init__.py
+    - dev.py
+    - prod.py
